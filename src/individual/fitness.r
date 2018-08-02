@@ -1,19 +1,19 @@
 fitness <- function(D,points,type='rawStress'){
-    D1=dist(points)
+    DD=dist(points)
     if(type=='rawStress'){
-      return(sum((D-D1)^2))
+      return(c(sum((D[[1]]-DD)^2),sum((D[[2]]-DD)^2)))
     }
     else if (type=='stress') {
-      return (sum((D-D1)^2)/sum(D^2))
+      return (c(sum((D[[1]]-DD)^2)/sum(D^2),sum((D[[2]]-DD)^2)/sum(D^2)))
     }
     else if (type=='mse'){
-      return(sum((D-D1)^2)/(ncol(as.matrix(D))^2))
+      return(c(sum((D[[1]]-DD)^2)/(ncol(as.matrix(D[[1]]))^2),sum((D[[2]]-DD)^2)/(ncol(as.matrix(D[[2]]))^2)))
     }
     else if(type=='normalizedStress'){
-      return(sqrt(sum((D-D1)^2)/sum(D^2)))
+      return(c(sqrt(sum((D[[1]]-DD)^2)/sum(D[[1]]^2)),sqrt(sum((D[[2]]-DD)^2)/sum(D[[2]]^2))))
     }
     else if(type=='sStress'){
-      return(sqrt(sum((D^2-D1^2)^2)/sum((D^2)^2)))
+      return(c(sqrt(sum((D[[1]]^2-DD^2)^2)/sum((D[[1]]^2)^2)),sqrt(sum((D[[2]]^2-DD^2)^2)/sum((D[[2]]^2)^2))))
     }
     else{
       return(-1)

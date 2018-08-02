@@ -3,6 +3,10 @@ getRandomRad<-function(di){
   return(di*c(cos(ang),sin(ang)))
 }
 
+rotateMatrix<-function(M,angle){
+  return(t(apply(M, 1, function(x) c(x[1]*cos(angle)-x[2]*sin(angle),x[1]*sin(angle)+x[2]*cos(angle)))))
+}
+
 initialize<-function(individual,D,type='radial',max=1){
   n<-individual$getNrow()
   m<-individual$getNcol()
@@ -11,7 +15,8 @@ initialize<-function(individual,D,type='radial',max=1){
   }
   if(type=='radial'){
     i=sample(n,size=1)
-    d<-as.matrix(D)[i,][-i]
+    individual$setAnchor(i)
+    d<-as.matrix(D[[sample(c(1,2),size=1)]])[i,][-i]
     dd<-unlist(lapply(d,function(x) getRandomRad(x)))
     M=matrix(dd,ncol=m,byrow='true')
     if(i==n){
@@ -22,5 +27,60 @@ initialize<-function(individual,D,type='radial',max=1){
       M<-rbind(M[1:i-1,]+1,rep(1,m),M[(i):(n-1),]+1)
     }
     return(M)
+  }
+  if(type=='pca'){
+    sampleMatrix=sample(2,size=1)
+    dim=ncol(as.matrix(D[[sampleMatrix]]))
+    s=sample(dim,size=2)
+    M=prcomp(t(as.matrix(D[[sampleMatrix]])),scale=FALSE)[[2]][,s]
+    return(M)
+  }
+  if(type=='pcaMax'){
+    sampleMatrix=sample(2,size=1)
+    dim=ncol(as.matrix(D[[sampleMatrix]]))
+    max=max(D[[sampleMatrix]])
+    s=sample(dim,size=2)
+    M=max*prcomp(t(as.matrix(D[[sampleMatrix]])),scale=FALSE)[[2]][,s]
+    return(M)
+  }
+  if(type=='pcaAvg'){
+    sampleMatrix=sample(2,size=1)
+    dim=ncol(as.matrix(D[[sampleMatrix]]))
+    avg=mean(D[[sampleMatrix]])
+    s=sample(dim,size=2)
+    M=avg*prcomp(t(as.matrix(D[[sampleMatrix]])),scale=FALSE)[[2]][,s]
+    return(M)
+  }
+  if(type=='cmdscale'){
+    s=sample(2,size=1)
+    angle=runif(1,max=2*pi)
+    M=cmdscale(D[[s]])
+    M=rotateMatrix(M,angle)
+    return(M)
+  }
+  if(type=='cmdscalePca'){
+    sampleMatrix=sample(2,size=1)
+    if(runif(1)<=0.3){
+      return(M=cmdscale(D[[sampleMatrix]]))
+    }
+    else{
+      dim=ncol(as.matrix(D[[sampleMatrix]]))
+      max=max(D[[sampleMatrix]])
+      s=sample(dim,size=2)
+      M=max*prcomp(t(as.matrix(D[[sampleMatrix]])),scale=FALSE)[[2]][,s]
+      return(M)
+    }
+  }
+  if(type=='cmdscaleMean'){
+    p=runif(1)
+    if(p<0.1){
+      return(cmdscale(D[[1]]))
+    }else if(p>0.9){
+      return(cmdscale(D[[2]]))
+    }
+    else{
+      M=(cmdscale(D[[1]])*p+cmdscale(D[[2]])*(1-p))/2
+      return(M)
+    }
   }
 }

@@ -6,11 +6,11 @@
 
   Individual<-function(nr=10,m=2) {
     thisEnv <- environment()
-    anchor<-rep(0,m)
+    anchor<-0
     data<-matrix(nrow=nr,ncol=m)
     n<-nr
     m<-m
-    fitness=0
+    fitness=c(0,0)
     me<-list(
       thisEnv = thisEnv,
       getEnv = function(){
@@ -39,7 +39,7 @@
         return (assign("data",M,thisEnv))
       },
       #Initialization
-      initialize=function(D,type='radial',max=1){
+      initialize=function(D,type='pca',max=1){
         return (assign("data",initialize(me,D,type,max),thisEnv))
       },
       #Fitness
@@ -54,8 +54,8 @@
       },
 
       #Mutation
-      setMutation=function(type='radio'){
-        return(mutate(I=me,ratio=0.4,p=0.07,type=type))
+      setMutation=function(type='radio',radio=0){
+        return(mutate(I=me,radio=radio,p=0.07,type=type))
       },
       getCrossOver=function(D,I,ratio=0.2,type="random"){
         return(crossOver(D,me,I,ratio,type))

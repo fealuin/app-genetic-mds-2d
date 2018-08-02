@@ -1,0 +1,39 @@
+starting worker pid=5898 on localhost:11509 at 18:00:02.128
+starting worker pid=5908 on localhost:11509 at 18:00:02.455
+starting worker pid=5918 on localhost:11509 at 18:00:02.762
+starting worker pid=5935 on localhost:11509 at 18:00:55.775
+starting worker pid=5945 on localhost:11509 at 18:00:56.003
+starting worker pid=5955 on localhost:11509 at 18:00:56.241
+starting worker pid=5983 on localhost:11509 at 18:04:15.478
+starting worker pid=5993 on localhost:11509 at 18:04:15.726
+starting worker pid=6003 on localhost:11509 at 18:04:15.967
+starting worker pid=6024 on localhost:11509 at 18:05:24.972
+starting worker pid=6034 on localhost:11509 at 18:05:25.348
+starting worker pid=6044 on localhost:11509 at 18:05:25.605
+Warning message:
+In if (!is.na(match(Class, .BasicClasses))) return(newBasic(Class,  :
+  the condition has length > 1 and only the first element will be used
+Warning message:
+In if (!is.na(match(Class, .BasicClasses))) return(newBasic(Class,  :
+  the condition has length > 1 and only the first element will be used
+Warning message:
+In if (!is.na(match(Class, .BasicClasses))) return(newBasic(Class,  :
+  the condition has length > 1 and only the first element will be used
+starting worker pid=6062 on localhost:11509 at 18:06:06.499
+starting worker pid=6072 on localhost:11509 at 18:06:06.846
+starting worker pid=6082 on localhost:11509 at 18:06:07.151
+Warning message:
+In if (!is.na(match(Class, .BasicClasses))) return(newBasic(Class,  :Warning message:
+
+  the condition has length > 1 and only the first element will be used
+In if (!is.na(match(Class, .BasicClasses))) return(newBasic(Class,  :
+  the condition has length > 1 and only the first element will be used
+Warning message:
+In if (!is.na(match(Class, .BasicClasses))) return(newBasic(Class,  :
+  the condition has length > 1 and only the first element will be used
+starting worker pid=1229 on localhost:11244 at 06:34:54.341
+starting worker pid=1232 on localhost:11244 at 06:34:54.380
+starting worker pid=1235 on localhost:11244 at 06:34:54.400
+starting worker pid=1259 on localhost:11244 at 06:47:07.670
+starting worker pid=1262 on localhost:11244 at 06:47:07.697
+starting worker pid=1265 on localhost:11244 at 06:47:07.722

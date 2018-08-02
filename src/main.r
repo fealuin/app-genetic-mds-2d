@@ -1,27 +1,26 @@
-library(kknn)
-
-data(glass)
+library(mco)
+library(nsga2R)
+library(emoa)
+library(ggplot2)
+library(ecr)
 
 source('./population/population.r')
-D=dist(glass[,2:10])
-size=100
-pop=Population(D,size)
-pop$initialize()
-pop$setFitness()
-
-#puntos=cmdscale(D)
-#pop$getIndividual(1)$setData(puntos[-1,])
-#pop$getIndividual(1)$setAnchor(puntos[1,])
-#pop$setFitness()
-
-
-for( i in 1:500){
-  pop2=pop$getCrossOver()
-  pop2$setMutation()
-  pop2$setFitness()
-  pop$setIndividuals(append(pop$getIndividuals(),pop2$getIndividuals()))
-  pop$orderByFitness()
-  pop$setIndividuals(pop$getIndividuals()[1:size])
-  print(c(i,pop$getFitness()[1]))
-  if(pop$getFitness()[1]<18308.55) break
+geneticMds2<-function(D1,D2,gen,size,m=2,initMethod='cmdscaleMean',radio){
+  #data=list()
+  pop=Population(D1,D2,size)
+  pop$initialize(type=initMethod)
+  pop$setFitness()
+  data<-data.frame(cbind(pop$getOrderByFitness(),1))
+  if(gen>1){
+    for( i in 2:gen){
+      pop2=pop$getCrossOver()
+      pop2$setMutation(radio=radio)
+      pop2$setFitness()
+      pop$setIndividuals(append(pop$getIndividuals(),pop2$getIndividuals()))
+      pop$orderByFitness()
+      pop$setIndividuals(pop$getIndividuals()[1:size])
+      data<-rbind(data,data.frame(cbind(pop$getOrderByFitness(),as.numeric(i))))
+    }
+  }
+  return(data)
 }
