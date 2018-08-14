@@ -18,7 +18,7 @@ USE `memoria` ;
 -- Table `memoria`.`individuals`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `memoria`.`individuals` (
-  `individual_id` INT NOT NULL DEFAULT NULL,
+  `individual_id` INT NOT NULL,
   `point_id` INT NOT NULL DEFAULT NULL,
   `x` DOUBLE NULL,
   `y` DOUBLE NULL,
@@ -50,7 +50,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `memoria`.`results` (
   `parameters_id` INT UNSIGNED NOT NULL,
   `individual_id` INT UNSIGNED NOT NULL,
-  `generation` INT NOT NULL,
+  `generation` INT UNSIGNED NOT NULL,
   `x` DOUBLE NULL,
   `y` DOUBLE NULL,
   `rank` INT NULL,
