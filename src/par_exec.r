@@ -6,7 +6,7 @@ library(RMySQL)
 source('./main.r')
 #DB connection
 con <- dbConnect(MySQL(), user='root', password='demos30', dbname='memoria', host='localhost')
-
+set.seed(1)
 #Data
 data(Glass)
 data(PimaIndiansDiabetes)
@@ -28,10 +28,10 @@ D6=as.dist(cor(t(dataDiabetes)))
 #Parameters
 dataset=c('glass','iris','diabetes')
 init=c('cmdscaleMean','cmdscalePca')
-runs=c(1)#:11)
+runs=c(1:11)
 radio=seq(0.1,1,by=0.1)
 popSize=c(10,50,100)
-gen=1#00
+gen=100
 parameters=expand.grid(dataset,init,runs,radio,popSize,gen)
 names(parameters)=c('dataset','initialization','runs','radio','population_size','generations')
 parameters$id=seq.int(nrow(parameters))

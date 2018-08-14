@@ -1,7 +1,7 @@
 library(mco)
 library(nsga2R)
 library(emoa)
-library(ggplot2)
+#library(ggplot2)
 library(ecr)
 
 source('./population/population.r')
@@ -19,8 +19,11 @@ geneticMds2<-function(D1,D2,gen,size,m=2,initMethod='cmdscaleMean',radio){
       pop$setIndividuals(append(pop$getIndividuals(),pop2$getIndividuals()))
       pop$orderByFitness()
       pop$setIndividuals(pop$getIndividuals()[1:size])
+      #data order
       data<-rbind(data,data.frame(cbind(pop$getOrderByFitness(),as.numeric(i))))
     }
   }
-  return(data)
+  #get data (points)
+  res=list(data,pop$getData())
+  return(res)
 }

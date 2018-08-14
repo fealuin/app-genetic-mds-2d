@@ -16,6 +16,17 @@ Population<-function(D1,D2,size=100,m=2){
     getDistance=function() {
       return(get("D",thisEnv))
     },
+    getData=function(){
+      i=1
+      d=matrix(ncol=m+2,nrow=0)
+      for(individual in me$getIndividuals()){
+        data=individual$getData()
+        d=rbind(d,cbind(i,seq.int(nrow(data)),data))
+        i=i+1
+      }
+      #names(d)<-c('individual_id','point_id','x','y')
+      return(data.frame(d))
+    },
     getIndividuals=function(){
       return(get("individuals",thisEnv))
     },

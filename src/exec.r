@@ -7,6 +7,7 @@ source('./main.r')
 #DB connection
 con <- dbConnect(MySQL(), user='root', password='demos30', dbname='memoria', host='localhost')
 
+set.seed(1)
 #Data
 data(Glass)
 data(PimaIndiansDiabetes)
@@ -28,10 +29,10 @@ D6=as.dist(cor(t(dataDiabetes)))
 #Parameters
 dataset=c('glass','iris','diabetes')
 init=c('cmdscaleMean','cmdscalePca')
-runs=c(1)#:11)
+runs=c(1:11)
 radio=seq(0.1,1,by=0.1)
 popSize=c(10,50,100)
-gen=1#00
+gen=100
 parameters=expand.grid(dataset,init,runs,radio,popSize,gen)
 names(parameters)=c('dataset','initialization','runs','radio','population_size','generations')
 parameters$id=seq.int(nrow(parameters))
@@ -39,7 +40,7 @@ parameters$id=seq.int(nrow(parameters))
 dbWriteTable(con,'parameters',parameters,row.name=FALSE,overwrite=TRUE)
 #Clear results table
 dbSendQuery(con,'truncate table results')
-
+dbSendQuery(con,'truncate table individuals')
 apply(
   parameters,
   1,
@@ -56,12 +57,16 @@ apply(
       D01<-D5
       D02<-D6
     }
-
+    #Results(orderByFitness)
     res<-geneticMds2(D01,D02,gen=as.numeric(param['generations']),size=param['population_size'],m=2,initMethod=param['initialization'],radio=as.numeric(param['radio']))
-    res<-cbind(param['id'],seq.int(nrow(res)),res)
-    names(res)=c('parameters_id','individual_id','x','y','rank','crowding','generation')
-    dbWriteTable(con,'results',res,row.name=FALSE,append=TRUE)
-    #print(res)
+    res[[1]]<-cbind(param['id'],seq.int(nrow(res[[1]])),res[[1]],param['runs'])
+    names(res[[1]])<-c('parameters_id','individual_id','x','y','rank','crowding','generation','run')
+    dbWriteTable(con,'results',res[[1]],row.name=FALSE,append=TRUE)
+    #individuals (points)
+    res[[2]]=cbind(param['id'],param['runs'],res[[2]])
+    names(res[[2]])=c('parameters_id','run','individual_id','point_id','x','y')
+    dbWriteTable(con,'individuals',res[[2]],row.name=FALSE,append=TRUE)
+
   }
 )
 dbDisconnect(con)
