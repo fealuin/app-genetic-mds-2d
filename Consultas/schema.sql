@@ -19,10 +19,10 @@ USE `memoria` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `memoria`.`individuals` (
   `individual_id` INT NOT NULL,
-  `point_id` INT NOT NULL DEFAULT NULL,
+  `point_id` INT NOT NULL,
   `x` DOUBLE NULL,
   `y` DOUBLE NULL,
-  `parameters_id` INT NOT NULL DEFAULT NULL,
+  `parameters_id` INT NOT NULL,
   `run` INT NOT NULL,
   PRIMARY KEY (`individual_id`, `point_id`, `parameters_id`, `run`))
 ENGINE = InnoDB
