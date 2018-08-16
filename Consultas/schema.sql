@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `memoria`.`parameters` (
   `radio` DOUBLE NULL,
   `population_size` INT UNSIGNED NULL,
   `generations` INT UNSIGNED NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`,`runs`))
 ENGINE = InnoDB;
 
 
@@ -56,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `memoria`.`results` (
   `rank` INT NULL,
   `crowding` VARCHAR(45) NULL,
   `run` INT NOT NULL,
-  `resultscol` VARCHAR(45) NULL,
   PRIMARY KEY (`parameters_id`, `individual_id`, `generation`, `run`))
 ENGINE = InnoDB;
 
