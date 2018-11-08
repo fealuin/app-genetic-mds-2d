@@ -68,8 +68,21 @@ Population<-function(D1,D2,size=100,m=2){
       return(sort)
     },
     getCrowdingDistance=function() {
-      cd=crowding_distance(t(cbind(me$getFitness(),me$getParetoRanking())))
-      return(cd)
+
+      #Crowding distance debiera ser por ranking
+      #cd=crowding_distance(t(cbind(me$getFitness(),me$getParetoRanking())))
+      ##old
+        #cd=crowding_distance(t(me$getFitness()))
+        #return(cd)
+        res=c()
+
+        fit=me$getFitness()
+        paretoRanking=me$getParetoRanking()
+        for(rank in unique(paretoRanking)){
+          ind=which(paretoRanking==rank)
+          res[ind]=crowding_distance(t(fit[ind,]))
+        }
+        return(res)
     },
     setMutation=function(p=runif(1),type="radio",radio=0) {
       lapply(me$getIndividuals(),function(x) if(runif(1)<p){x$setMutation(type=type,radio=radio)})
