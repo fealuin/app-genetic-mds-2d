@@ -21,7 +21,7 @@ source("./main.r")
 #ade4::dudi.pco(D, scannf = FALSE, nf = 2)$li
 #smacofSym(M,ndim=2)$conf
 
-getstress <- function(D,points){
+getstresses <- function(D,points){
     D1=dist(points)
     raw<-sum((D-D1)^2)
     stress<-raw/sum(D^2)
@@ -31,6 +31,11 @@ getstress <- function(D,points){
     return(unname(c(raw,stress,mse,normalized,sstress)))
 }
 
+getstress <- function(D,points){
+  raw<-sum((D-D1)^2)
+  stress<-raw/sum(D^2)
+  retunr(stress)
+}
 
 
 mdsrun <- function(D){
