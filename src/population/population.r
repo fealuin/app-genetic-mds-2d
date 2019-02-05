@@ -79,8 +79,8 @@ Population<-function(D1,D2,size=100,m=2){
         fit=me$getFitness()
         paretoRanking=me$getParetoRanking()
         for(rank in unique(paretoRanking)){
-          ind=which(paretoRanking==rank)
-          res[ind]=crowding_distance(t(fit[ind,]))
+          ind<-which(paretoRanking==rank)
+          res[ind]<-crowding_distance(t(fit[ind,]))
         }
         return(res)
     },

@@ -1,0 +1,59 @@
+###########################################################################
+## Instructions for the Genetic algorithm designed to the phylogenetic inference problem 
+###########################################################################
+#-----------------
+#A) Input features
+#------------------
+input:
+#- Data with variables
+ name_data: matriz2014.txt
+#- Data with clusters
+ name_cluster: clusterPropuesto.csv
+
+#-----------------
+#B) Application features
+#------------------
+application:
+#- Number of executions (integer)
+ runs: 1
+#- Ending condition defined by the number of generations
+ ending: 100
+#- Parallel application (number of cores)
+ cores: 1
+#-----------------
+#C) Population features
+#------------------
+population:
+#- Define the size of the population (integer, number of individuals)
+ size: 100
+#- Define how to initialize the population
+ initialization:
+#- Define if the data sets have to be balanced using SMOTE (T/F)
+  balance: F
+#- Different strategies for the initialization of the algorithm based on feature selection - RAND: random initialization, GPS: Greedy Prototype Selection, KNN: k-Nearest Neighbors, OWNN: Optimal Weighted Nearest Neighbor Classifier,
+# PAM: Nearest Shrunken Centroids, SNN: Stabilized Nearest Neighbor Classifier, RF: Random Forest
+  method: RAND
+# Probability of the incorporation of one variable in the generations of random solutions
+  probability: 0.1
+#- Define how to evaluate the solutions - The algorithm includes four clustering techniques K-means ,PAM (partition around medoids), CLARA (Clustering Large Applications) 
+# FAN (Fuzzy Analysis Clustering)
+ evaluation: 
+#- Define the distance methods: EUC: Euclidean distance - SPE: Spearmans's correlation - CEN: Centered Pearson correlation - MAN: Manhattan 
+  distance: CEN
+#- Fitness function - ARI=Adjusted Rand Index, RI: Rand index, J: Jaccard index, FM:Fowlkes-Mallows index
+  fitness_fnc: J
+#-----------------
+#D) Genetic operation features
+#------------------
+genetic_operations:
+#- Crossover operation features
+ crossover:
+  #-- Type of crossover operator applied: U: uniform
+  method: U
+  #-- Rate of crossover in the population (0-1)
+  rate: 0.6
+ mutation:
+  #-- Type of mutation operator applied: S: simple
+  method: S
+   #-- Rate of mutation (0-1)
+  rate: 0.2

@@ -1,0 +1,23 @@
+input:
+  name_data: matriz2014.txt
+  name_cluster: clusterPropuesto.csv
+application:
+  runs: 1
+  ending: 1
+  cores: 1
+population:
+  size: 46
+  initialization:
+    balance: F
+    method: GPS
+    probability: 0.1
+  evaluation:
+    distance: CEN
+    fitness_fnc: J
+genetic_operations:
+  crossover:
+    method: U
+    rate: 0.16
+  mutation:
+    method: S
+    rate: 0.23

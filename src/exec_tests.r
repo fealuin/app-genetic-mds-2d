@@ -3,6 +3,7 @@ library(parallel)
 library(RMySQL)
 library(treespace)
 library(phangorn)
+library(amap)
 
 
 
@@ -13,16 +14,16 @@ set.seed(1)
 abalone<-read.csv('../datasets/abalone.data',header = FALSE)
 abalone<-abalone[sample(nrow(abalone),1000),]
 abaloneDist<-dist(abalone[,-1])
-abaloneCor<-as.dist(cor(t(abalone[,-1])))
+abaloneCor<-Dist(abalone[,-1],method="correlation")
 
 breast_cancer_wisconsin<-read.csv('../datasets/breast-cancer-wisconsin.data',header = FALSE)
 breast_cancer_wisconsin<-sapply(breast_cancer_wisconsin,as.integer)
 bcwDist<-dist(breast_cancer_wisconsin[,-1])
-bcwCor<-as.dist(cor(t(breast_cancer_wisconsin[,-1])))
+bcwCor<-Dist(breast_cancer_wisconsin[,-1],method="correlation")
 
 ionosphere<-read.csv('../datasets/ionosphere.data',header = FALSE)
 ionosphereDist<-dist(ionosphere[,-35])
-ionosphereCor<-as.dist(cor(t(ionosphere[,-35])))
+ionosphereCor<-Dist(ionosphere[,-35],method="correlation")
 
 fluTreesRF=RF.dist(fluTrees)
 fluTreesKF=KF.dist(fluTrees)
@@ -37,18 +38,18 @@ dataDiabetes<-PimaIndiansDiabetes[,1:8]
 dataIris<-iris[,1:4]
 
 D1=dist(dataGlass)
-D2=as.dist(cor(t(dataGlass)))
+D2=Dist(dataGlass,method="correlation")
 
 D3=dist(dataIris)
-D4=as.dist(cor(t(dataIris)))
+D4=Dist(dataIris,method="correlation")
 
 D5=dist(dataDiabetes)
-D6=as.dist(cor(t(dataDiabetes)))
+D6=Dist(dataDiabetes,method="correlation")
 
 #Parameters
 dataset=c('glass','iris','diabetes','abalone','bcw','ionosphere','fluTrees')
 init=c('cmdscaleMean')
-runs=c(1:11)
+runs=c(1:31)
 radio=0.5
 popSize=c(100)
 gen=160

@@ -32,51 +32,64 @@ getstresses <- function(D,points){
 }
 
 getstress <- function(D,points){
+  D1=dist(points)
   raw<-sum((D-D1)^2)
   stress<-raw/sum(D^2)
-  retunr(stress)
+  return(stress)
 }
 
 
-mdsrun <- function(D){
+mdsrun <- function(D1,D2){
    
     #res<-data.frame()
     res<-list()
-     cmdscaleTime<-system.time(cmdscaleDist<-cmdscale(D,k=2))[2:3]
-    veganTime<- system.time(veganDist<-vegan::wcmdscale(D, k=2))[2:3]
-    ecodistTime<-system.time(ecodistDist<-ecodist::pco(D)$vectors[,1:2])[2:3]
-    labdsvTime<-system.time(labdsvDist<-labdsv::pco(D)$points)[2:3]
+    res[[1]]<-list()
+    res[[2]]<-list()
+    res[[3]]<-list()
+    res[[4]]<-list()
+     cmdscaleTime<-system.time(cmdscaleDist<-cmdscale(D1,k=2))[2:3]
+    veganTime<- system.time(veganDist<-vegan::wcmdscale(D1, k=2))[2:3]
+    ecodistTime<-system.time(ecodistDist<-ecodist::pco(D1)$vectors[,1:2])[2:3]
+    labdsvTime<-system.time(labdsvDist<-labdsv::pco(D1)$points)[2:3]
     #apeTime<-system.time(apeDist<-ape::pcoa(D)$vectors)[2:3]
     #ade4Time<-system.time(ade4Dist<-ade4::dudi.pco(D, scannf = FALSE, nf = 2)$li)[2:3]
-    smacofTime<-system.time(smacofDist<-smacof::smacofSym(D,ndim=2)$conf)[2:3]
-
-    #cmdscaleStress<-getstress(D,cmdscaleDist)
-    #veganStress<-getstress(D,veganDist)
-    #ecodistStress<-getstress(D,ecodistDist)
-    #labdsvStress<-getstress(D,labdsvDist)
-    #apeStress<-getstress(D,apeDist)
-    #ade4Stress<-getstress(D,ade4Dist)
-    #smacofStress<-getstress(D,smacofDist)
+    smacofTime<-system.time(smacofDist<-smacof::smacofSym(D1,ndim=2)$conf)[2:3]
     
-    #print(data.frame(unname(cbind('vegan',data.frame(veganDist)))))
-    
-    # res<-rbind(res,unname(cbind('cmdscale',data.frame(cmdscaleDist))))
-    # res<-rbind(res,unname(cbind('vegan',data.frame(veganDist)))) 
-    # res<-rbind(res,unname(cbind('ecodist',data.frame(ecodistDist))))
-    # res<-rbind(res,unname(cbind('labdsv',data.frame(labdsvDist))))
-    # res<-rbind(res,unname(cbind('smacof',data.frame(smacofDist))))
-    
-    res[['cmdscale']]<-cmdscaleDist
-    res[['vegan']]<-veganDist
-    res[['ecodist']]<-ecodistDist
-    res[['labdsv']]<-labdsvDist
-    res[['smacof']]<-smacofDist
+    res[[1]][['cmdscale']]<-cmdscaleDist
+    res[[1]][['vegan']]<-veganDist
+    res[[1]][['ecodist']]<-ecodistDist
+    res[[1]][['labdsv']]<-labdsvDist
+    res[[1]][['smacof']]<-smacofDist
     
     #res[['ape']]<-apeDist
     #res[['ade4']]<-ade4Dist
     
+    cmdscaleTime<-system.time(cmdscaleDist<-cmdscale(D2,k=2))[2:3]
+    veganTime<- system.time(veganDist<-vegan::wcmdscale(D2, k=2))[2:3]
+    ecodistTime<-system.time(ecodistDist<-ecodist::pco(D2)$vectors[,1:2])[2:3]
+    labdsvTime<-system.time(labdsvDist<-labdsv::pco(D2)$points)[2:3]
+    #apeTime<-system.time(apeDist<-ape::pcoa(D)$vectors)[2:3]
+    #ade4Time<-system.time(ade4Dist<-ade4::dudi.pco(D, scannf = FALSE, nf = 2)$li)[2:3]
+    smacofTime<-system.time(smacofDist<-smacof::smacofSym(D2,ndim=2)$conf)[2:3]
     
-
+    res[[2]][['cmdscale']]<-cmdscaleDist
+    res[[2]][['vegan']]<-veganDist
+    res[[2]][['ecodist']]<-ecodistDist
+    res[[2]][['labdsv']]<-labdsvDist
+    res[[2]][['smacof']]<-smacofDist
+    
+    res[[3]][['cmdscale']]<-c(getstress(D1,res[[1]][['cmdscale']]),getstress(D2,res[[1]][['cmdscale']]))
+    res[[3]][['vegan']]<-c(getstress(D1,res[[1]][['vegan']]),getstress(D2,res[[1]][['vegan']]))
+    res[[3]][['ecodist']]<-c(getstress(D1,res[[1]][['ecodist']]),getstress(D2,res[[1]][['ecodist']]))
+    res[[3]][['labdsv']]<-c(getstress(D1,res[[1]][['labdsv']]),getstress(D2,res[[1]][['labdsv']]))
+    res[[3]][['smacof']]<-c(getstress(D1,res[[1]][['smacof']]),getstress(D2,res[[1]][['smacof']]))
+    
+    res[[4]][['cmdscale']]<-c(getstress(D1,res[[2]][['cmdscale']]),getstress(D2,res[[2]][['cmdscale']]))
+    res[[4]][['vegan']]<-c(getstress(D1,res[[2]][['vegan']]),getstress(D2,res[[2]][['vegan']]))
+    res[[4]][['ecodist']]<-c(getstress(D1,res[[2]][['ecodist']]),getstress(D2,res[[2]][['ecodist']]))
+    res[[4]][['labdsv']]<-c(getstress(D1,res[[2]][['labdsv']]),getstress(D2,res[[2]][['labdsv']]))
+    res[[4]][['smacof']]<-c(getstress(D1,res[[2]][['smacof']]),getstress(D2,res[[2]][['smacof']]))
+    
     #return (unname(c(cmdscaleTime,cmdscaleStress,veganTime,veganStress,ecodistTime,ecodistTime,labdsvTime,labdsvStress,apeTime,apeStress,ade4Time,ade4Stress,smacofTime,smacofStress)))
     return(res)
 }
@@ -86,16 +99,16 @@ set.seed(1)
 abalone<-read.csv('../datasets/abalone.data',header = FALSE)
 abalone<-abalone[sample(nrow(abalone),1000),]
 abaloneDist<-dist(abalone[,-1])
-abaloneCor<-as.dist(cor(t(abalone[,-1]))+2)
+abaloneCor<-as.dist((1-cor(t(abalone[,-1])))/2)
 
 breast_cancer_wisconsin<-read.csv('../datasets/breast-cancer-wisconsin.data',header = FALSE)
 breast_cancer_wisconsin<-sapply(breast_cancer_wisconsin,as.integer)
 bcwDist<-dist(breast_cancer_wisconsin[,-1])
-bcwCor<-as.dist(cor(t(breast_cancer_wisconsin[,-1]))+2)
+bcwCor<-as.dist((1-cor(t(breast_cancer_wisconsin[,-1])))/2)
 
 ionosphere<-read.csv('../datasets/ionosphere.data',header = FALSE)
 ionosphereDist<-dist(ionosphere[,-35])
-ionosphereCor<-as.dist(cor(t(ionosphere[,-35]))+2)
+ionosphereCor<-as.dist((1-cor(t(ionosphere[,-35])))/2)
 
 fluTreesRF=RF.dist(fluTrees)
 fluTreesKF=KF.dist(fluTrees)
@@ -110,22 +123,22 @@ dataDiabetes<-PimaIndiansDiabetes[,1:8]
 dataIris<-iris[,1:4]
 
 D1=dist(dataGlass)
-D2=as.dist(cor(t(dataGlass))+2)
+D2=as.dist((1-cor(t(dataGlass)))/2)
 
 D3=dist(dataIris)
-D4=as.dist(cor(t(dataIris))+2)
+D4=as.dist((1-cor(t(dataIris)))/2)
 
 D5=dist(dataDiabetes)
-D6=as.dist(cor(t(dataDiabetes))+2)
+D6=as.dist((1-cor(t(dataDiabetes)))/2)
 
 
 #Parameters
 functions=c('cmdscale','vegan','ecodist','labdsv','ape','ade4','smacof')
 dataset=c('glass','iris','diabetes','abalone','bcw','ionosphere')
-runs=c(1:31)
+runs=c(1:21)
 parameters=expand.grid(dataset,runs)
 
-names(parameters)=c('dataset','runs')
+names(parameters)=c('dataset','run')
 parameters$id=seq.int(nrow(parameters))
 res<-list()
 
@@ -158,10 +171,8 @@ res<-apply(
       D01<-ionosphereDist
       D02<-ionosphereCor
     }
-    print('Dist')
-    mdsrun(D01)
-    print('Cor')
-    mdsrun(D02)
+    print('Iniciando')
+    mdsrun(D01,D02)
   }
   )
 
