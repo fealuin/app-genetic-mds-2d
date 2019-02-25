@@ -5,7 +5,7 @@ library(emoa)
 library(ecr)
 
 source('./population/population.r')
-geneticMds2<-function(D1,D2,gen,size,m=2,initMethod='cmdscaleMean',radio){
+geneticMds2<-function(D1,D2,gen,size,m=2,initMethod='cmdscaleMean',radio,mutationRatio=runif(1),crossOverRatio=runif(1)){
   #data=list()
   pop=Population(D1,D2,size)
   pop$initialize(type=initMethod)
@@ -13,8 +13,8 @@ geneticMds2<-function(D1,D2,gen,size,m=2,initMethod='cmdscaleMean',radio){
   data<-data.frame(cbind(pop$getOrderByFitness(),1))
   if(gen>1){
     for( i in 2:gen){
-      pop2=pop$getCrossOver()
-      pop2$setMutation(radio=radio)
+      pop2=pop$getCrossOver(ratio = crossOverRatio)
+      pop2$setMutation(radio=radio,p=mutationRatio)
       pop2$setFitness()
       pop$setIndividuals(append(pop$getIndividuals(),pop2$getIndividuals()))
       pop$orderByFitness()
