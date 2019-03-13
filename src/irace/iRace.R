@@ -4,5 +4,7 @@ parameters=readParameters(file='parameters.txt')
 
 scenario <- readScenario(filename = "scenario.txt",
                          scenario = defaultScenario())
-iraceResults<-irace(scenario = scenario,parameters = parameters)
+irace(scenario = scenario,parameters = parameters)
+testing.main(logFile =  'irace.log.Rdata')
+
 

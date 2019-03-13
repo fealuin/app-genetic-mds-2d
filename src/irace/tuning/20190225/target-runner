@@ -1,0 +1,32 @@
+#!/usr/bin/env Rscript --vanilla
+options(warn = -1) 
+
+setwd('/Users/Juan/Documents/Projects/u/memoria/app-genetic-mds-2d/src')
+
+suppressMessages(source('main.r'))
+#suppressMessages(library(mlbench))
+suppressMessages(library(amap))
+#data(Glass)
+args <- commandArgs(TRUE)
+candidate<-args[1]
+instanceId<-args[2]
+seed<-args[3]
+instanceName<-args[4]
+gen<-as.integer(args[5])
+size<-as.integer(args[6])
+initMethod<-args[7]
+radio<-as.double(args[8])
+mutationRatio<-as.double(args[9])
+crossOverRatio<-as.double(args[10])
+
+filepath=paste0('/tmp/',paste(candidate,instanceId,seed,sep='-'))
+data=readRDS(instanceName)
+#dataGlass<-Glass[,1:9]
+D1=data[[1]]
+D2=data[[2]]
+set.seed(seed)
+res<-geneticMds2(D1,D2,gen=gen,size=size,initMethod=initMethod,radio=radio,mutationRatio=mutationRatio,crossOverRatio=crossOverRatio)[[1]]
+res<-res[res$X5==gen,]
+ok<-tryCatch({
+saveRDS(res,file=filepath)
+},error=function(e){cat(paste('Error: ',filepath))})

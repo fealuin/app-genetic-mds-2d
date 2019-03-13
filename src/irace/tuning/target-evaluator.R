@@ -6,7 +6,7 @@ setwd('/Users/Juan/Documents/Projects/u/memoria/app-genetic-mds-2d/src')
 suppressMessages(library(ecr))
 suppressMessages(library(synchronicity))
 
-m<-mutex()
+
 
 args <- commandArgs(TRUE)
 candidate<-args[1]
