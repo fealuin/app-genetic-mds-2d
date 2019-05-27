@@ -5,7 +5,7 @@ library(emoa)
 library(ecr)
 
 source('./population/population.r')
-geneticMds2<-function(D1,D2,gen,size,m=2,initMethod='cmdscaleMean',radio,mutationRatio=runif(1),crossOverRatio=runif(1)){
+geneticMds2<-function(D1,D2,gen=458,size=345,m=2,initMethod='cmdscaleMean',radio=0.6,mutationRatio=0.9,crossOverRatio=0.8){
   #data=list()
   pop=Population(D1,D2,size)
   pop$initialize(type=initMethod)
