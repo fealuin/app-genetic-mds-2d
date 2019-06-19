@@ -1,0 +1,34 @@
+digraph nicegraph {
+
+# a 'graph' statement
+graph [overlap = true, fontsize = 20]
+
+# several 'node' statements
+node [shape = box,fontname = Helvetica,fontsize=20]
+A[label='Población']; 
+B[label='Operaciones genéticas']; 
+C[label='Evaluación de fitness']; 
+D[label='Ordenamiento y selección']; 
+
+F[label='Población inicial']
+
+node[shape=diamond, fontname = Helvetica,fontsize=20]
+E[label='¿Cond. de término?']; 
+
+node [shape = circle,
+fixedsize = true,
+width = 0.9] // sets as circles
+1[label='Inicio']; 2[label='Fin']
+
+# several 'edge' statements
+edge[fontname = Helvetica,fontsize=20]
+1->F 
+F->A
+A->E
+E->2[label='Sí']
+E->B[label='No']
+B->C
+C->D
+D->A
+
+}

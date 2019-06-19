@@ -115,28 +115,28 @@ a <- list(
   #tickcolor = toRGB("blue")
 )
 
-p <- plot_ly(data = citiesMDS, x = ~x, y = ~y,type='scatter',mode='markers',text=rownames(citiesMDS),width = 1200,height = 400)%>%
-  add_annotations(x=dataAn$x,
-                  y=dataAn$y,
+p <- plot_ly(data = citiesMDS, x = ~y, y = ~x,type='scatter',mode='markers',text=rownames(citiesMDS),width = 200,height = 800)%>%
+  add_annotations(x=dataAn$y,
+                  y=dataAn$x,
                   text=rownames(dataAn),
-                  xref='x',
-                  yref='y',
+                  xref='y',
+                  yref='x',
                   showarrow=TRUE,
                   arrowhead=4,
                   arrowsize=.5,
-                  ax=40,
+                  ax=20,
                   ay=-40
                   )%>%
-  add_annotations(x=dataAn2$x,
-                  y=dataAn2$y,
+  add_annotations(x=dataAn2$y,
+                  y=dataAn2$x,
                   text=rownames(dataAn2),
-                  xref='x',
-                  yref='y',
+                  xref='y',
+                  yref='x',
                   showarrow=TRUE,
                   arrowhead=4,
                   arrowsize=.5,
-                  ax=40,
-                  ay=40
+                  ax=-40,
+                  ay=20
   )%>%
   layout(xaxis=a,yaxis=a)
 p

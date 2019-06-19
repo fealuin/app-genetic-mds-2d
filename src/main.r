@@ -3,6 +3,7 @@ library(nsga2R)
 library(emoa)
 #library(ggplot2)
 library(ecr)
+library(svMisc)
 
 source('./population/population.r')
 geneticMds2<-function(D1,D2,gen=458,size=345,m=2,initMethod='cmdscaleMean',radio=0.6,mutationRatio=0.9,crossOverRatio=0.8){
@@ -21,6 +22,7 @@ geneticMds2<-function(D1,D2,gen=458,size=345,m=2,initMethod='cmdscaleMean',radio
       pop$setIndividuals(pop$getIndividuals()[1:size])
       #data order
       data<-rbind(data,data.frame(cbind(pop$getOrderByFitness(),as.numeric(i))))
+      progress(i,gen)
     }
   }
   #get data (points)

@@ -1,0 +1,21 @@
+graph TB;
+style A fill:#f9f,fontsize:50px;
+0((Inicio))
+A[Población]
+B[Operaciones genéticas]
+D[Evaluación de fitness]
+E[Ordenamiento y selección]
+F{"¿Cond. de término?"}
+G[Población inicial]
+H((Fin))
+0-->G;
+G-->A
+B-->D;
+D-->E;
+A-->F;
+E-->A;
+F-->|no|B;
+F-->|si|H;
+style A font-size:100px;
+
+
