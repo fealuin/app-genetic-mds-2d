@@ -1,0 +1,188 @@
+ Estab,Complejidad,Nombre
+101100,Alta adultos,Hospital Dr. Juan Noe Crevanni (Arica)
+102100,Alta adultos,Hospital Dr. Ernesto Torres Galdames (Iquique)
+103100,Alta adultos,Hospital Dr. Leonardo Guzman (Antofagasta)
+103101,Alta adultos,Hospital Dr. Carlos Cisternas (Calama)
+103102,Baja,Hospital Dr. Marcos Macuada (Tocopilla)
+103103,Baja,Hospital 21 de Mayo (Taltal)
+103104,Baja,Hospital de Mejillones
+104100,Alta adultos,Hospital San Jose del Carmen (Copiapo)
+104101,Baja,Hospital Dr. Jeronimo Mendez Arancibia (Chanaral)
+104102,Baja,Hospital Dr. Florencio Vargas (Diego de Almagro)
+104103,Mediana,Hospital Provincial del Huasco Monsenor Fernando Ariztia Ruiz (Vallenar)
+104104,Baja,Hospital Dr. Manuel Magalhaes Medling (Huasco)
+105100,Alta adultos,Hospital San Juan de Dios (La Serena)
+105101,Alta adultos,Hospital San Pablo (Coquimbo)
+105102,Alta adultos,Hospital Dr. Antonio Tirado Lanas (Ovalle)
+105103,Mediana,Hospital Dr. Humberto Elorza Cortes (Illapel)
+105104,Baja,Hospital de Salamanca
+105105,Baja,Hospital San Juan de Dios (Combarbala)
+105106,Baja,Hospital Dr. Jose Arrano (Andacollo)
+105107,Baja,Hospital San Juan de Dios (Vicuna)
+105108,Baja,Hospital San Pedro (Los Vilos)
+106100,Alta adultos,Hospital Carlos Van Buren (Valparaiso)
+106102,Alta adultos,Hospital Dr. Eduardo Pereira Ramirez (Valparaiso)
+106103,Alta adultos,Hospital Claudio Vicuna ( San Antonio)
+106104,Psiquiatrico,Hospital Del Salvador (Valparaiso)
+106105,Baja,Hospital San Jose (Casablanca)
+107100,Alta adultos,Hospital Dr. Gustavo Fricke (Vina del Mar)
+107101,Alta adultos,Hospital San Martin (Quillota)
+107102,Alta adultos,Hospital de Quilpue
+107103,Baja,Hospital Dr. Mario Sanchez Vergara (La Calera)
+107104,Baja,Hospital Santo Tomas (Limache)
+107105,Baja,Hospital San Agustin (La Ligua)
+107106,Baja,Hospital Dr. Victor Hugo Moll (Cabildo)
+107107,Baja,Hospital de Petorca
+107108,Baja,Hospital Adriana Cousino (Quintero)
+107109,Baja,Hospital Juana Ross de Edwards (Penablanca. Villa Alemana)
+107110,Baja,Hospital Centro Geriatrico Paz de la Tarde (Limache)
+108100,Alta adultos,Hospital de San Camilo (San Felipe)
+108101,Alta adultos,Hospital San Juan de Dios (Los Andes)
+108102,Baja,Hospital San Francisco (Llaillay)
+108104,Baja,Hospital San Antonio (Putaendo)
+108105,Psiquiatrico,Hospital Psiquiatrico Dr. Philippe Pinel (Putaendo)
+109100,Alta adultos,Complejo Hospitalario San Jose (Santiago. Independencia)
+109101,Alta ninos,Hospital Clinico de Ninos Dr. Roberto del Rio (Santiago. Independencia)
+109102,Psiquiatrico,Instituto Psiquiatrico Dr. Jose Horwitz Barak (Santiago. Recoleta)
+109103,Alta adultos,Instituto Nacional del Cancer Dr. Caupolican Pardo Correa (Santiago. Recoleta)
+109104,Baja,Hospital de Til Til
+110100,Alta adultos,Hospital San Juan de Dios (Santiago. Santiago)
+110110,Alta adultos,Instituto Traumatologico Dr. Teodoro Gebauer
+110120,Alta adultos,Hospital Dr. Felix Bulnes Cerda (Santiago. Quinta Normal)
+110130,Mediana,Hospital Adalberto Steeger (Talagante)
+110140,Mediana,Hospital de Penaflor
+110150,Alta adultos,Hospital San Jose (Melipilla)
+110160,Baja,Hospital de Curacavi
+111100,Alta adultos,Hospital Clinico San Borja-Arriaran (Santiago. Santiago)
+111101,Alta adultos,Hospital Clinico Metropolitano El Carmen Doctor Luis Valentin Ferrada
+111195,Alta adultos,Hospital de Urgencia Asistencia Publica Dr. Alejandro del Rio
+112100,Alta adultos,Hospital Del Salvador (Santiago. Providencia)
+112101,Alta adultos,Hospital Dr. Luis Tisne B. (Santiago. Penalolen)
+112102,Alta ninos,Hospital de Ninos Dr. Luis Calvo Mackenna (Santiago. Providencia)
+112103,Alta adultos,Instituto Nacional de Enfermedades Respiratorias y Cirugia Toracica
+112104,Alta adultos,Instituto de Neurocirugia Dr. Alfonso Asenjo
+112105,Alta ninos,Instituto Nacional de Rehabilitacion Infantil Presidente Pedro Aguirre Cerda
+112106,Alta adultos,Instituto Nacional Geriatrico Presidente Eduardo Frei Montalva
+112107,Baja,Hospital Hanga Roa (Isla De Pascua)
+113100,Alta adultos,Hospital Barros Luco Trudeau (Santiago. San Miguel)
+113130,Alta ninos,Hospital Dr. Exequiel Gonzalez Cortes (Santiago. San Miguel)
+113150,Mediana,Hospital San Luis (Buin)
+113160,Mediana,Hospital de Enfermedades Infecciosas Dr. Lucio Cordova (Santiago. San Miguel)
+113170,Psiquiatrico,Hospital Psiquiatrico El Peral (Santiago. Puente Alto)
+113180,Alta adultos,Hospital El Pino (Santiago. San Bernardo)
+114101,Alta adultos,Complejo Hospitalario Dr. Sotero del Rio (Santiago. Puente Alto)
+114102,Mediana,Hospital San Jose de Maipo
+114103,Alta adultos,Hospital Padre Alberto Hurtado (San Ramon)
+114105,Alta adultos,Hospital Clinico Metropolitano La Florida Dra. Eloisa Diaz Inzunza
+115100,Alta adultos,Hospital Regional de Rancagua
+115101,Baja,Hospital Santa Filomena (Graneros)
+115102,Baja,Hospital de Coinco
+115103,Baja,Hospital Del Salvador (Peumo)
+115104,Mediana,Hospital Dr. Ricardo Valenzuela Saez (Rengo)
+115105,Baja,Hospital San Vicente de Tagua-Tagua
+115106,Baja,Hospital de Pichidegua
+115107,Alta adultos,Hospital San Juan de Dios (San Fernando)
+115108,Baja,Hospital Mercedes (Chimbarongo)
+115109,Baja,Hospital de Nancagua
+115110,Mediana,Hospital de Santa Cruz
+115111,Baja,Hospital de Marchigüe
+115112,Baja,Hospital de Pichilemu
+115113,Baja,Hospital de Lolol
+115114,Baja,Hospital de Litueche
+116100,Alta adultos,Hospital San Juan de Dios (Curico)
+116101,Baja,Hospital de Teno
+116102,Baja,Hospital de Molina
+116103,Baja,Hospital de Hualane
+116104,Baja,Hospital de Licanten
+116105,Alta adultos,Hospital Dr. Cesar Garavagno Burotto (Talca)
+116106,Baja,Hospital de Curepto
+116107,Mediana,Hospital de Constitucion
+116108,Alta adultos,Hospital Presidente Carlos Ibanez del Campo (Linares)
+116109,Baja,Hospital Dr. Abel Fuentealba Lagos de San Javier
+116110,Mediana,Hospital San Jose (Parral)
+116111,Mediana,Hospital San Juan de Dios (Cauquenes)
+116112,Baja,Hospital Dr. Benjamin Pedreros (Chanco)
+117101,Alta adultos,Hospital Clinico Herminda Martin (Chillan)
+117102,Alta adultos,Hospital de San Carlos
+117103,Baja,Hospital Comunitario de Salud Familiar de Bulnes
+117104,Baja,Hospital Comunitario de Salud Familiar Pedro Morales Campos (Yungay)
+117106,Baja,Hospital Comunitario de Salud Familiar de Quirihue
+117107,Baja,Hospital Comunitario de Salud Familiar de El Carmen
+117108,Baja,Hospital Comunitario de Salud Familiar Dr. Eduardo Contreras Trabucco de Coelemu
+118100,Alta adultos,Hospital Clinico Regional Dr. Guillermo Grant Benavente (Concepcion)
+118103,Mediana,Hospital Traumatologico (Concepcion)
+118105,Alta adultos,Hospital San Jose (Coronel)
+118106,Alta adultos,Hospital de Lota
+118107,Baja,Hospital Clorinda Avello (Santa Juana)
+118108,Baja,Hospital San Agustin de Florida
+119100,Alta adultos,Hospital Las Higueras (Talcahuano)
+119101,Alta adultos,Hospital de Tome
+119102,Baja,Hospital Penco - Lirquen
+120101,Alta adultos,Complejo Asistencial Dr. Victor Rios Ruiz (Los angeles)
+120102,Baja,Hospital Comunitario de Mulchen
+120103,Baja,Hospital Comunitario de Nacimiento
+120104,Baja,Hospital Comunitario de Yumbel
+120105,Baja,Hospital Comunitario de Laja
+120106,Baja,Hospital Comunitario de Santa Barbara
+120107,Baja,Hospital Comunitario Dr. Roberto Munoz Urrutia de Huepil
+121109,Alta adultos,Hospital Dr. Hernan Henriquez Aravena (Temuco)
+121110,Mediana,Hospital Dr. Abraham Godoy (Lautaro)
+121111,Baja,Hospital de Galvarino
+121112,Baja,Hospital de Vilcun
+121113,Baja,Hospital Dr. Eduardo Gonzalez Galeno (Cunco)
+121114,Mediana,Hospital Intercultural de Nueva Imperial
+121115,Baja,Hospital de Carahue
+121116,Baja,Hospital Dr. Arturo Hillerns Larranaga (Saavedra)
+121117,Mediana,Hospital de Pitrufquen
+121118,Baja,Hospital de Tolten
+121119,Baja,Hospital de Gorbea
+121120,Baja,Hospital de Loncoche
+121121,Mediana,Hospital de Villarrica
+121200,Baja,Hospital San Francisco (Pucon) (D)
+121201,Baja,Hospital Maquehue-Pelal (Padre Las Casas) (D)
+122100,Alta adultos,Hospital Clinico Regional (Valdivia)
+122101,Baja,Hospital de Corral
+122102,Baja,Hospital de Los Lagos
+122103,Baja,Hospital de Lanco
+122105,Baja,Hospital de Rio Bueno
+122106,Baja,Hospital de Paillaco
+122201,Baja,Hospital Padre Bernabe de Lucerna (Panguipulli) (D)
+123100,Alta adultos,Hospital Base San Jose de Osorno
+123101,Baja,Hospital de Purranque
+123102,Baja,Hospital de Rio Negro
+123103,Baja,Hospital de Puerto Octay
+123104,Baja,Hospital Mision San Juan de la Costa
+123105,Baja,Hospital del Perpetuo Socorro de Quilacahuin
+124105,Alta adultos,Hospital de Puerto Montt
+124110,Baja,Hospital de Llanquihue
+124115,Baja,Hospital de Frutillar
+124120,Baja,Hospital de Fresia
+124125,Baja,Hospital de Maullin
+124130,Baja,Hospital de Calbuco
+124140,Baja,Hospital de Palena
+124145,Baja,Hospital de Futaleufu
+125100,Alta adultos,Hospital Regional (Coihaique)
+125101,Baja,Hospital de Puerto Aysen
+125102,Baja,Hospital Dr. Leopoldo Ortega R. (Chile Chico)
+125103,Baja,Hospital Lord Cochrane
+125104,Baja,Hospital Dr. Jorge Ibar (Cisnes)
+126100,Alta adultos,Hospital Clinico de Magallanes Dr. Lautaro Navarro Avaria
+126101,Mediana,Hospital Dr. Augusto Essmann Burgos ( Natales)
+126102,Baja,Hospital Dr. Marco Antonio Chamorro ( Porvenir)
+128109,Mediana,Hospital Provincial Dr. Rafael Avaria (Curanilahue)
+128110,Baja,Hospital de Lebu
+128111,Baja,Hospital Intercultural Kallvu Llanka (Canete)
+128112,Baja,Hospital de Contulmo
+128113,Baja,Hospital San Vicente (Arauco)
+129100,Alta adultos,Hospital Dr. Mauricio Heyermann (Angol)
+129101,Baja,Hospital de Puren
+129103,Baja,Hospital de Collipulli
+129104,Mediana,Hospital Dr. Dino Stagno M.(Traiguen)
+129106,Alta adultos,Hospital San Jose de Victoria
+129107,Baja,Hospital Dr. Oscar Hernandez E.(Curacautin)
+129108,Baja,Hospital de Lonquimay
+133150,Alta adultos,Hospital de Castro
+133155,Mediana,Hospital de Ancud
+133160,Baja,Hospital Comunitario de Achao
+133165,Baja,Hospital de Quellon
+133170,Baja,Hospital de Queilen

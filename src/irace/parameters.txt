@@ -1,0 +1,5 @@
+# name      switch           type   values          [conditions (using R syntax)]
+initialization       "--"                 c      (cmdscaleMean,cmdscalePca,radial,random,cmdscale,pcaAvg,pcaMax)
+radio "--"  r (0.00,1.00)
+popsize   "--"   i (1,500)
+gen "--" i (1,500)

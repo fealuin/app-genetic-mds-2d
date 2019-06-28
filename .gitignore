@@ -3,7 +3,3 @@ src/plot/
 *.png
 log.txt
 .Rproj.user
-*.data
-*.xlsx
-*.csv
-*.txt
