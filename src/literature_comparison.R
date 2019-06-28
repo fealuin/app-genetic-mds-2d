@@ -58,7 +58,7 @@ D5=dist(dataDiabetes)
 D6=Dist(dataDiabetes,method="manhattan")
 
 #Parameters
-dataset=c('diabetes')    #'iris','glass','diabetes','abalone','bcw','ionosphere','fluTrees')
+dataset=c('glass')    #'iris','glass','diabetes','abalone','bcw','ionosphere','fluTrees')
 runs=1:31
 
 parameters<-expand.grid(dataset,runs)
@@ -127,14 +127,14 @@ for(i in 1:nrow(parameters)){
     ac.mds<-rbind(ac.mds,cbind(method='smacof',i=1,as.matrix(smacof::smacofSym(D01,ndim=2)$conf)))
     ac.mds<-rbind(ac.mds,cbind(method='smacof',i=2,as.matrix(smacof::smacofSym(D02,ndim=2)$conf)))
     
-    if(param$run==1){
-      gen<-geneticMds2(D01,D02,size=max(runs))
+    
+      gen<-geneticMds2(D01,D02)#,size=max(runs))
       paretoId<-gen[[1]][gen[[1]]$X5==max(gen[[1]]$X5),]
       row.names(paretoId)<-NULL
       #Solo se dejan valores en la frontera de pareto..
       paretoValues<-gen[[2]][gen[[2]]$i %in% which(paretoId$X3==1),]
       ac.mds<-rbind(ac.mds,cbind(method='gen',i=paretoValues[[2]]$i,as.matrix(paretoValues[c('V3','V4')])))
-    }
+    
     
     res.mds<-rbind(res.mds,cbind(dataset=as.character(param$dataset),run=param$run,ac.mds))
   }
