@@ -180,7 +180,9 @@ for(i in 1:nrow(res.unique)){
 }
 res.stress<-data.frame(res.unique,s1,s2)
 
-d<-'diabetes'
+save(res.stress,res.mds,file='d.Rdata')
+
+#d<-'diabetes'
 for(d in dataset){
 p<-plot_ly(res.stress[res.stress$dataset==d,],x=~s1,y=~s2,color=~method,mode='markers',type='scatter')%>%
   layout(title=d)
